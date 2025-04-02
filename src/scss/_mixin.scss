@@ -1,4 +1,4 @@
-$desktop: 1280px;
+$desktop: 1440px;
 $laptop: 1024px;
 $tablet: 768px;
 $mobile: 375px;
@@ -47,8 +47,8 @@ $mobile: 375px;
       family: $name;
       weight: $weight;
       display: swap;
+      sttyle: normal;
     }
-    src: url("../fonts/#{ $name }-#{ $weight }.woff2") format("woff2"),
-      url("../fonts/#{ $name }-#{ $weight }.woff") format("woff");
+    src: url("../fonts/#{ $name }-#{ $weight }.woff2") format("woff2");
   }
 }

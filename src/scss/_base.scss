@@ -21,26 +21,22 @@
 
 body {
   overflow-x: hidden;
-  min-width: 360px;
+  min-width: 320px;
   min-height: 100vh;
-}
-
-.body {
   font-family: $font-family;
-  // font-size: $font-size;
+  font-size: $font-size;
   line-height: 1.2;
-  color: $light;
-  background-color: $dark;
-  background-image: url("/img/fire.svg");
-  background-size: cover;
-  background-position: center top 50%;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  color: $main;
+  background-color: $secondary;
 }
 
-.body_gradient {
-  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0) 40%, #000 100%),
-    url("/img/fire.svg");
+h1,
+h2,
+h3,
+h4,
+p,
+figure {
+  margin: 0;
 }
 
 img,
@@ -78,14 +74,6 @@ ul {
   margin: 0;
 }
 
-h1,
-h2,
-h3,
-h4,
-p,
-figure {
-  margin: 0;
-}
 
 fieldset {
   margin: 0;
@@ -97,46 +85,25 @@ iframe {
   border: none;
 }
 
-section {
-  padding-bottom: 84px;
-}
-
-/*
-Доступно скрываю элементы
-*/
-
 .visually-hidden {
   position: fixed;
   transform: scale(0);
 }
 
-/*
-Пример контейнера
-
-Если контейнер 1180px по макету,
-то для max-width прибавляем паддинги 30px*2, 
-в итоге 1240px
-Чтобы контент не прижимался к краям экрана
-*/
-
 .container {
   max-width: 1100px;
-  padding: 0 20px;
-  margin: 0 auto;
+  padding: 0 16px;
 
   @include tablet {
-    padding: 0 35px;
+    padding: 0 29px;
   }
 
   @include laptop {
-    padding: 0 45px;
+    padding: 0 43px;
+  }
+
+  @include desktop {
+    padding: 0 92px;
   }
 }
 
-.hidden {
-  display: none;
-}
-
-.no-validate {
-  outline: 3px solid tomato;
-}
