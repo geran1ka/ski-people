@@ -1,0 +1,111 @@
+@use '../mixin' as *;
+@use '../variables' as *; 
+
+.header {
+  padding: 18px 0;
+
+  &__container {
+
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-areas: 'logo links' 'search search';
+    justify-content: space-between;
+    align-items: center;
+    gap: 17px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid $secondary-light;
+
+    @include laptop {
+      grid-template-areas: 'logo search links';
+    }
+  }
+
+  &__logo-link {
+    grid-area: logo;
+
+  }
+
+  &__logo-image {
+    width: 106px;
+
+    @include tablet {
+      width: 130px;
+    }
+  }
+
+  &__search {
+    grid-area: search;
+    position: relative;
+    width: 100%;
+
+    @include laptop {
+      width: 408px;
+    }
+
+    @include desktop {
+      width: 514px;
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    height: 100%;
+    padding: 12px 45px 12px 24px;
+    background-color: $secondary-light;
+    border-radius: 32px;
+    border: none;
+
+    &::placeholder {
+      color: $secondary-dark;
+    }
+  }
+
+  &__search-btn {
+    position: absolute;
+    content: '';
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+  }
+
+  &__links-list {
+    grid-area: links;
+    display: flex;
+    gap: 16px;
+    align-items: center;
+
+    @include laptop {
+      gap: 24px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    column-gap: 4px;
+    align-items: center;
+    flex-direction: row-reverse;
+
+    @include tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__link-text {
+    display: none;
+    color: $main-ligth;
+
+
+    @include tablet {
+      display: block;
+    }
+
+  }
+
+  &__link-count {
+
+  }
+}

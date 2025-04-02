@@ -22,13 +22,13 @@
       as="font"
       type="font/woff2"
       crossorigin />
-    <script src="src/main.js" type="module"></script>
+    <script src="src/index.js" type="module"></script>
     <title>SKI people</title>
   </head>
 
   <body>
     <header class="header">
-      <div class="container">
+      <div class="container header__container">
         <div class="header__wrapper">
           <a
             class="header__logo-link"
@@ -39,7 +39,11 @@
           </a>
 
           <form class="header__search" action="#">
-            <input type="search" name="search" class="header__search-input" />
+            <input
+              type="search"
+              name="search"
+              class="header__search-input"
+              placeholder="Введите запрос" />
 
             <button class="header__search-btn" type="submit">
               <svg

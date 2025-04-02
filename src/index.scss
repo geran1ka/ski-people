@@ -1,7 +1,9 @@
 @use "./scss/base" as *;
 @use "./scss/fonts" as *;
 @use "./scss/mixin" as *;
-@use "./scss/variables";
+@use "./scss/variables" as *;
+
+  @use "./scss/module/header";
 
 
 // @import 'normalize.css';
