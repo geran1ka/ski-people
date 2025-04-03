@@ -1,0 +1,51 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.goods {
+  padding-top: 24px;
+  padding-bottom: 40px;
+
+  @include tablet {
+    padding-top: 32px;
+  }
+
+  @include laptop {
+    padding-top: 40px;
+    padding-bottom: 60px;
+  }
+
+
+  &__title {
+    font-family: $font-family-secondary;
+
+    font-size: 24px;
+    font-weight: 900;
+    margin-bottom: 24px;
+
+    @include tablet {
+      margin-bottom: 32px;
+    }
+
+    @include laptop {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 1fr));
+    gap: 32px 8px;
+
+    @include tablet {
+      grid-template-columns: repeat(3, minmax(230px, 1fr));
+      column-gap: 10px;
+    }
+
+    @include laptop {
+      grid-template-columns: repeat(4, minmax(302px, 1fr));
+      gap: 40px 16px;
+    }
+  }
+}
+
+

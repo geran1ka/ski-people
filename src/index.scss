@@ -1,9 +1,18 @@
-@use "./scss/base" as *;
-@use "./scss/fonts" as *;
-@use "./scss/mixin" as *;
-@use "./scss/variables" as *;
+@use './scss/base' as *;
+@use './scss/fonts' as *;
+@use './scss/mixin' as *;
+@use './scss/variables' as *;
 
-  @use "./scss/module/header";
+@use './scss/module/header';
+@use './scss/module/catalog';
+@use './scss/module/breadcrumb';
+@use './scss/module/btn';
+@use './scss/module/goods';
+@use './scss/module/card';
+@use './scss/module/product';
+@use './scss/module/order';
+@use './scss/module/footer';
 
+@use './scss/components/info';
 
 // @import 'normalize.css';

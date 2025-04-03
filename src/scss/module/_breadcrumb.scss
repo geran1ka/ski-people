@@ -1,0 +1,45 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.breadcrumb {
+
+  &__container {}
+
+  &__navigation {
+
+  }
+
+  &__list {
+    display: flex;
+    gap: 6px;
+    color: $secondary-dark
+  }
+
+  &__item {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    border-bottom: 1px solid transparent ;
+
+    transition: color $transition;
+
+    &:not(:last-child)::after {
+      content: '>';
+      display: block;
+      
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+
+  &__link {
+    outline: none;
+    border-bottom: 1px solid transparent;
+
+    &:focus-visible {
+      border-color: $main-ligth;
+    }
+  }
+}

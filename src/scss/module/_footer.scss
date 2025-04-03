@@ -1,0 +1,98 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.footer {
+  background-color: $main-ligth;
+  padding: 40px 0;
+  color: $secondary;
+
+  &__container {
+    display: grid;
+    grid-template-areas: 'logo' 'social' 'developer' 'copyright';
+    align-items: center;
+    gap: 24px;
+
+    @include tablet {
+      grid-template-areas: 'logo logo logo' 'developer social copyright';
+      justify-content: space-around;
+    }
+
+    @include laptop {
+      justify-content: space-between;
+    }
+  }
+
+  &__logo-link {
+    grid-area: logo;
+    align-self: center;
+    justify-self: center;
+  }
+
+  &__logo-icon {
+    width: 164px;
+
+    @include tablet {
+      width: 275px;
+    }
+  }
+
+  &__social {
+    grid-area: social;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  &__social-tel {
+    display: flex;
+    gap: 8px;
+    color: $secondary;
+
+    & svg {
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__socail-list {
+    display: flex;
+    gap: 13px;
+
+    @include tablet {
+      justify-content: center;
+    }
+  }
+
+  &__social-item {
+  }
+
+  &__social-link {
+    border: 1px solid transparent;
+    transition: color $transition;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:focus {
+      border: $secondary;
+    }
+  }
+
+  &__developer-list {
+    grid-area: developer;
+    color: $secondary-light;
+  }
+
+  &__developer-item {
+  }
+
+  &__developer-link {
+  }
+
+  &__copyright {
+    grid-area: copyright;
+    color: $secondary-light;
+  }
+}

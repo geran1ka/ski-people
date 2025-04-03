@@ -1,0 +1,70 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__link {
+    display: block;
+    margin-bottom: 16px;
+
+    @include tablet {
+      margin-bottom: 19px;
+    }
+
+    @include laptop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 12px;
+    gap: 18px;
+    color: $main-ligth;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 37px;
+    }
+
+    @include laptop {
+      margin-bottom: 18px;
+    }
+
+    &-title {
+      font-size: 12px;
+
+      @include tablet {
+        font-size: 16px;
+      }
+    }
+
+    &-price {
+      font-size: 16px;
+
+      @include tablet {
+        font-size: 20px;
+      }
+    }
+  }
+
+  &__btn-cart {
+
+  }
+
+  &__btn-like {
+    position: absolute;
+
+  }
+}
