@@ -1,0 +1,25 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.counter {
+  max-width: 64px;
+  display: flex;
+  gap: 6px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 11px;
+
+  border: 1px solid $secondary-light;
+  border-radius: 32px;
+
+
+  &__minus,
+  &__plus {
+    display: block;
+    cursor: pointer;
+  }
+
+  &__number {
+    color: $main-ligth;
+  }
+}

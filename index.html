@@ -691,7 +691,7 @@
             </div>
 
             <div class="product__info-btns">
-              <button class="product__btn-cart btn-cart" type="button">
+              <button class="product__btn-cart btn-cart-alt" type="button">
                 В корзину
               </button>
               <button
@@ -714,8 +714,8 @@
         </div>
       </section>
 
-      <!-- <section class="cart">
-        <div class="container">
+      <section class="cart">
+        <div class="container cart__container">
           <h2 class="cart__title">Корзина</h2>
           <ul class="cart__list">
             <li class="cart__item">
@@ -724,10 +724,52 @@
                 alt="Горные лыжи"
                 class="cart__item-img" />
 
-              <h3 class="cart__item-title">Горные лыжи</h3>
+              <div class="cart__item-wrapper">
+                <h3 class="cart__item-title">Горные лыжи</h3>
+                <p class="cart__item-id">арт. 84348945757</p>
+              </div>
 
               <p class="cart__item-price">5 000&nbsp;₽</p>
-              <p class="cart__item-id">арт. 84348945757</p>
+
+              <div class="cart__item-counter counter">
+                <button class="counter__minus" type="button">-</button>
+                <p class="counter__number">99</p>
+                <button class="counter__plus" type="button">+</button>
+              </div>
+            </li>
+
+            <li class="cart__item">
+              <img
+                src="/public/img/snow-mini.jpg"
+                alt="Горные лыжи"
+                class="cart__item-img" />
+
+              <div class="cart__item-wrapper">
+                <h3 class="cart__item-title">Горные лыжи</h3>
+                <p class="cart__item-id">арт. 84348945757</p>
+              </div>
+
+              <p class="cart__item-price">5 000&nbsp;₽</p>
+
+              <div class="cart__item-counter counter">
+                <button class="counter__minus" type="button">-</button>
+                <p class="counter__number">2</p>
+                <button class="counter__plus" type="button">+</button>
+              </div>
+            </li>
+
+            <li class="cart__item">
+              <img
+                src="/public/img/snow-mini.jpg"
+                alt="Горные лыжи"
+                class="cart__item-img" />
+
+              <div class="cart__item-wrapper">
+                <h3 class="cart__item-title">Горные лыжи</h3>
+                <p class="cart__item-id">арт. 84348945757</p>
+              </div>
+
+              <p class="cart__item-price">5 000&nbsp;₽</p>
 
               <div class="cart__item-counter counter">
                 <button class="counter__minus" type="button">-</button>
@@ -751,7 +793,10 @@
 
             <p class="cart__order-delivery">Доставка 0 ₽</p>
 
-            <button class="cart__order-btn" type="submit" form="cartForm">
+            <button
+              class="cart__order-btn btn-cart-alt"
+              type="submit"
+              form="cartForm">
               Оформить заказ
             </button>
           </div>
@@ -780,6 +825,7 @@
                 name="address"
                 placeholder="Адрес доставки" />
               <textarea
+                class="form__textarea"
                 name="comment"
                 id="comment"
                 placeholder="Комментарий к заказу">
@@ -787,95 +833,97 @@
             </fieldset>
             <fieldset class="form__delivery form-radio">
               <legend class="form-radio__title">Доставка</legend>
-              <label class="form-radio__label">
-                <input
-                  class="form-radio__input"
-                  name="delivery"
-                  id="delivery"
-                  type="radio" />
-                Доставка
-              </label>
-              <label class="form-radio__label">
-                <input
-                  class="form-radio__input"
-                  name="delivery"
-                  id="pickup"
-                  type="radio" />
-                Самовывоз
-              </label>
+              <input
+                class="form-radio__input"
+                name="delivery"
+                id="delivery"
+                type="radio"
+                hidden />
+              <label class="form-radio__label" for="delivery"> Доставка </label>
+              <input
+                class="form-radio__input"
+                name="delivery"
+                id="pickup"
+                type="radio"
+                hidden />
+              <label class="form-radio__label" for="pickup"> Самовывоз </label>
             </fieldset>
 
             <fieldset class="form__payment form-radio">
               <legend class="form-radio__title">Оплата</legend>
-              <label class="form-radio__label">
-                <input
-                  class="form-radio__input"
-                  name="payment"
-                  id="card"
-                  type="radio" />
+              <input
+                class="form-radio__input"
+                name="payment"
+                id="card"
+                type="radio"
+                hidden />
+              <label class="form-radio__label" for="card">
                 Картой при получении
               </label>
-              <label class="form-radio__label">
-                <input
-                  class="form-radio__input"
-                  name="payment"
-                  id="cash"
-                  type="radio" />
+              <input
+                class="form-radio__input"
+                name="payment"
+                id="cash"
+                type="radio"
+                hidden />
+              <label class="form-radio__label" for="cash">
                 Наличными при получении
               </label>
             </fieldset>
           </form>
         </div>
-      </section> -->
+      </section>
 
       <div class="order">
         <div class="container order__container">
-          <div class="order__top">
-            <h2 class="order__top-title">Заказ успешно размещен</h2>
-            <p class="order__top-total">20 000 ₽</p>
-            <p class="order__top-number">№43435</p>
-          </div>
-          <div class="order__info info">
-            <h3 class="info__title">Данные доставки</h3>
+          <div class="order__wrapper">
+            <div class="order__top">
+              <h2 class="order__top-title">Заказ успешно размещен</h2>
+              <p class="order__top-total">20 000 ₽</p>
+              <p class="order__top-number">№43435</p>
+            </div>
+            <div class="order__info info">
+              <h3 class="info__title">Данные доставки</h3>
 
-            <table class="info__table table">
-              <tbody class="info__table-body">
-                <tr class="info__table-row">
-                  <td class="info__table-item">Получатель</td>
-                  <td class="info__table-cell">Иванов Петр Александрович</td>
-                </tr>
+              <table class="info__table table">
+                <tbody class="info__table-body">
+                  <tr class="info__table-row">
+                    <td class="info__table-item">Получатель</td>
+                    <td class="info__table-cell">Иванов Петр Александрович</td>
+                  </tr>
 
-                <tr class="info__table-row">
-                  <td class="info__table-item">Телефон</td>
-                  <td class="info__table-item">+7 (737) 346 23 00</td>
-                </tr>
+                  <tr class="info__table-row">
+                    <td class="info__table-item">Телефон</td>
+                    <td class="info__table-item">+7 (737) 346 23 00</td>
+                  </tr>
 
-                <tr class="info__table-row">
-                  <td class="info__table-item">E-mail</td>
-                  <td class="info__table-item">Ivanov84@gmail.com</td>
-                </tr>
+                  <tr class="info__table-row">
+                    <td class="info__table-item">E-mail</td>
+                    <td class="info__table-item">Ivanov84@gmail.com</td>
+                  </tr>
 
-                <tr class="info__table-row">
-                  <td class="info__table-item">Адрес доставки</td>
-                  <td class="info__table-item">
-                    Москва, ул. Ленина, 21, кв. 33
-                  </td>
-                </tr>
+                  <tr class="info__table-row">
+                    <td class="info__table-item">Адрес доставки</td>
+                    <td class="info__table-item">
+                      Москва, ул. Ленина, 21, кв. 33
+                    </td>
+                  </tr>
 
-                <tr class="info__table-row">
-                  <td class="info__table-item">Способ оплаты</td>
-                  <td class="info__table-item">Картой при получении</td>
-                </tr>
+                  <tr class="info__table-row">
+                    <td class="info__table-item">Способ оплаты</td>
+                    <td class="info__table-item">Картой при получении</td>
+                  </tr>
 
-                <tr class="info__table-row">
-                  <td class="info__table-item">Способ получения</td>
-                  <td class="info__table-item">Доставка</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="order__bottom">
-            <a href="/" class="order__bottom-link">На главную</a>
+                  <tr class="info__table-row">
+                    <td class="info__table-item">Способ получения</td>
+                    <td class="info__table-item">Доставка</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="order__bottom">
+              <a href="/" class="order__bottom-link btn-cart-alt">На главную</a>
+            </div>
           </div>
         </div>
       </div>

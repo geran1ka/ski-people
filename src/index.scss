@@ -6,13 +6,15 @@
 @use './scss/module/header';
 @use './scss/module/catalog';
 @use './scss/module/breadcrumb';
-@use './scss/module/btn';
+
 @use './scss/module/goods';
 @use './scss/module/card';
 @use './scss/module/product';
+@use './scss/module/cart';
 @use './scss/module/order';
 @use './scss/module/footer';
 
+@use './scss/components/btn';
 @use './scss/components/info';
-
+@use './scss/components/counter';
 // @import 'normalize.css';

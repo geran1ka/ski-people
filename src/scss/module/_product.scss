@@ -130,30 +130,10 @@
     }
 
 		&__btn-cart {
-      width: 100%;
-      color: $secondary;
-      background-color: $primary;
-      border: 1px solid $primary;
-      border-radius: 32px;
-      outline: none;
-      transition: color $transition, border-color $transition, opacity $transition;
 
-      
-      &:hover {
-        background-color: #0945de;
-        border-color: #0945de;
-      }
-
-      &:focus-visible {
-        border-color: #042f9c;
-      }
-
-      &:disabled {
-        opacity: 0.2;
-      }
-
+    }
 		&__btn-like {}
-}
+
 }
 
 .slider-thumbnails {

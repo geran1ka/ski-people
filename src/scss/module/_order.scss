@@ -1,4 +1,109 @@
 @use '../mixin' as *;
 @use '../variables' as *;
 
+.order {
+  padding-top: 32px;
+  padding-bottom: 60px;
 
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 80px;
+  }
+
+  @include laptop {
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    border-radius: 16px;
+    border: 1px solid $main;
+
+    @include tablet {
+      padding-top: 0;
+      padding-bottom: 0;
+      border-color: transparent;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      max-width: 710px;
+      border-radius: 16px;
+      border: 1px solid $main;
+      padding: 60px 151px;
+      gap: 24px;
+    }
+
+    @include laptop {
+      padding-left: 159px;
+      padding-right: 159px;
+      max-width: 726px;
+    }
+
+    @include desktop {
+      padding-left: 212px;
+      padding-right: 212px;
+
+      max-width: 832px;
+    }
+  }
+
+  &__top {
+    display: grid;
+    grid-template-areas: 'title' 'total' 'number';
+    gap: 8px;
+
+    @include tablet {
+      grid-template-areas: 'title total' 'number .';
+      gap: 12px;
+      justify-content: space-between;
+    }
+  }
+
+  &__top-title {
+    grid-area: title;
+    font-size: 16px;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__top-total {
+    grid-area: total;
+    font-size: 16px;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__top-number {
+    grid-area: number;
+    padding: 4px 8px;
+    background-color: $secondary-light;
+    border-radius: 32px;
+    max-width: max-content;
+  }
+
+  &__info {
+  }
+
+  &__bottom {
+  }
+
+  &__bottom-link {
+    display: block;
+    text-align: center;
+  }
+}

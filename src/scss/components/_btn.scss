@@ -23,6 +23,31 @@
   }
 }
 
+.btn-cart-alt {
+  width: 100%;
+  padding: 12px 24px;
+  color: $secondary;
+  background-color: $primary;
+  border: 1px solid $primary;
+  border-radius: 32px;
+  outline: none;
+  transition: color $transition, border-color $transition, opacity $transition, background-color $transition;
+
+  
+  &:hover {
+    background-color: #092f91;
+    border-color: #0945de;
+  }
+
+  &:focus-visible {
+    border-color: #042f9c;
+  }
+
+  &:disabled {
+    opacity: 0.2;
+  }
+}
+
 .btn-like {
   content: '';
   top: 12px;

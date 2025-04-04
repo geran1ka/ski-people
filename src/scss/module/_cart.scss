@@ -1,0 +1,371 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.cart {
+  padding-top: 24px;
+  padding-bottom: 60px;
+
+  @include tablet {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+
+  @include laptop {
+    padding-top: 40px;
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-areas: 'title' 'list' 'form' 'order';
+    grid-template-columns: 1fr;
+    gap: 24px;
+
+    @include tablet {
+      gap: 32px;
+    }
+
+    @include laptop {
+      grid-template-areas: 'title .' 'list order' 'form form';
+      grid-template-columns: 1fr 302px;
+      gap: 40px;
+      justify-content: space-between;
+    }
+
+    @include laptop {
+      grid-template-areas: 'title title' 'list order' 'form form';
+      grid-template-columns: 1fr 408px;
+    }
+  }
+
+  &__title {
+    grid-area: title ;
+    font-family: $font-family-secondary;
+    color: $main-ligth;
+    font-size: 24px;
+    font-weight: 900;
+
+    @include tablet {
+      font-size: 32px;
+    }
+  }
+
+  &__list {
+    grid-area: list ;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+  }
+
+  &__item {
+    display: grid;
+    grid-template-areas: 'img wrapper wrapper' 'img counter price';
+    grid-template-columns: 80px 64px 1fr;
+    gap: 13px 8px;
+    max-width: 710px;
+    align-items: center;
+    color: $main-ligth;
+
+    @include tablet {
+      grid-template-areas: 'img wrapper price' 'img counter .';
+      grid-template-columns: 120px 1fr 1fr;
+      gap: 24px 12px;
+
+    }
+
+    @include laptop {
+      max-width: 514px;
+    }
+  }
+
+  &__item-img {
+    grid-area: img;
+    border-radius: 16px;
+    background-color: $primary;
+    max-width: 80px;
+    object-fit: cover;
+
+    @include tablet {
+      max-width: 120px;
+    }
+  }
+
+  &__item-wrapper {
+    grid-area: wrapper;
+  }
+
+  &__item-title {
+    grid-area: title;
+    margin-bottom: 4px;
+
+    @include tablet {
+      margin-bottom: 6px;
+    }
+  }
+  
+  &__item-id {
+    font-size: 9px;
+    color: $secondary-dark;
+
+    @include tablet {
+      font-size: 12px;
+    }
+  }
+
+  &__item-price {
+    grid-area: price;
+
+    @include tablet {
+      justify-self: end;
+    }
+  }
+
+  &__item-counter {
+    grid-area: counter;
+  }
+
+  &__order {
+    grid-area: order ;
+    color: $main-ligth;
+
+    padding-top: 24px;
+    border-top: 1px solid $secondary-dark;
+  
+    @include tablet {
+      padding-top: 32px;
+  
+    }
+  
+    @include laptop {
+      padding-top: 0;
+      border-top: none;
+    }
+  
+
+  }
+
+  &__order-title {
+    margin-bottom: 16px;
+    font-size: 16px;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__order-info {
+    margin-bottom: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      margin-bottom: 40px;
+      font-size: 16px;
+    }
+  }
+
+  &__order-count {}
+
+  &__order-number {}
+
+  &__order-price {}
+
+  &__order-delivery {
+    margin-bottom: 8px;
+    font-size: 9px;
+    color: $secondary-dark;
+
+    @include tablet {
+      margin-bottom: 12px;
+      font-size: 12px;
+    }
+  }
+
+  &__order-btn {}
+
+  &__form {
+    grid-area: form ;
+  }
+}
+
+.form {
+  display: grid;
+  grid-template-areas: 'title' 'contacts' 'delivery' 'payment';
+  grid-template-columns: 1fr;
+  gap: 16px;
+  color: $main-ligth;
+
+  padding-top: 24px;
+  border-top: 1px solid $secondary-dark;
+
+  @include tablet {
+    padding-top: 32px;
+
+  }
+
+  @include laptop {
+    padding-top: 40px;
+
+  }
+
+
+  @include tablet {
+    grid-template-areas: 'title title' 'contacts contacts' 'delivery payment';
+    grid-template-columns: 230px 1fr;
+    padding-top: 32px;
+
+
+  }
+
+  @include laptop {
+    grid-template-columns: 196px 1fr;
+    padding-top: 40px;
+
+  }
+
+
+  &__title {
+    grid-area: title;
+    font-size: 16px;
+    font-weight: 400;
+
+    @include tablet {
+      font-size: 20px;
+    }
+    
+  }
+
+  &__contacts {
+    grid-area: contacts;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @include tablet {
+      flex-wrap: wrap;
+      flex-direction: row;
+
+      gap: 10px;
+
+    }
+
+    @include laptop {
+      gap: 16px;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__input {
+    padding: 12px 14px;
+    border-radius: 4px;
+    background-color: $secondary-light;
+    outline: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    transition: border-color $transition;
+
+    &:hover {
+      border-color: #dfe3eb;
+    }
+
+    &::placeholder {
+      color: $secondary-dark;
+    }
+
+
+    @include tablet {
+      flex-basis: calc(50% - 5px);
+    }
+
+    @include laptop {
+      flex-basis: calc(50% - 8px);
+    }
+
+    
+  }
+
+  &__textarea {
+    flex-basis: 100%;
+    min-height: 120px;
+    padding: 12px 14px;
+    border-radius: 4px;
+    background-color: $secondary-light;
+    outline: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    transition: border-color $transition;
+
+    &:hover {
+      border-color: #dfe3eb;
+    }
+
+    &::placeholder {
+      color: $secondary-dark;
+    }
+  }
+
+  &__delivery {
+    grid-area: delivery;
+  }
+
+  &__payment {
+    grid-area: payment;
+  }
+}
+.form-radio {
+
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  justify-content: center;
+  color: #151515;
+
+  &__title {
+    font-size: 16px;
+    margin-bottom: 12px;
+
+    @include tablet {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__input {
+  }
+
+  &__label {
+    position: relative;
+    padding-left: 24px;
+    cursor: pointer;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: -50%;
+      left: 0;
+      transform: translateY(45%) translateX(1px);
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 1px solid $main-ligth;
+    }
+
+
+
+    
+  }
+
+  &__input:checked + &__label::before {
+      background-color: $primary;
+    
+  } 
+
+  
+
+
+}
