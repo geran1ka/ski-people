@@ -19,7 +19,7 @@
     padding-bottom: 24px;
 
     border-radius: 16px;
-    border: 1px solid $main;
+    border: 1px solid $secondary-light;
 
     @include tablet {
       padding-top: 0;
@@ -37,7 +37,7 @@
     @include tablet {
       max-width: 710px;
       border-radius: 16px;
-      border: 1px solid $main;
+      border: 1px solid $secondary-light;
       padding: 60px 151px;
       gap: 24px;
     }

@@ -116,8 +116,10 @@
   &__item-price {
     grid-area: price;
 
+
     @include tablet {
       justify-self: end;
+      font-size: 16px;
     }
   }
 
@@ -130,7 +132,7 @@
     color: $main-ligth;
 
     padding-top: 24px;
-    border-top: 1px solid $secondary-dark;
+    border-top: 1px solid $secondary-light;
   
     @include tablet {
       padding-top: 32px;
@@ -199,7 +201,7 @@
   color: $main-ligth;
 
   padding-top: 24px;
-  border-top: 1px solid $secondary-dark;
+  border-top: 1px solid $secondary-light;
 
   @include tablet {
     padding-top: 32px;
