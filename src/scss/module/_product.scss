@@ -1,152 +1,349 @@
 @use '../mixin' as *;
 @use '../variables' as *;
 
+// .product {
+//   padding-top: 24px;
+//   padding-bottom: 60px;
+
+//   &__container {
+//     display: grid;
+//     grid-template-areas: 'title' 'slider' 'info';
+//     grid-template-columns: 1fr;
+//     gap: 24px;
+
+//     @include laptop {
+//       grid-template-areas: 'title title' 'slider info';
+//       grid-template-columns: 1fr 302px;
+//       gap: 40px 16px;
+//     }
+
+//     @include desktop {
+//       grid-template-areas: 'title title' 'slider info';
+//       grid-template-columns: 1fr 408px;
+//       gap: 40px 16px;
+//     }
+//   }
+
+
+//   &__title {
+//     grid-area: title;
+//     font-family: $font-family-secondary;
+//     font-weight: 900;
+//     font-size: 24px;
+
+//     @include tablet {
+//       font-size: 32px;
+//     }
+
+//     @include laptop {
+//       font-size: 40px;
+//     }
+//   }
+
+//   &__slider {
+//     width: 100%;
+//     display: flex;
+//     flex-direction: column;
+    
+//     grid-area: slider;
+//     margin-bottom: 8px;
+
+//     @include tablet {
+//       margin-bottom: 16px;
+//       gap:14px
+//     }
+
+//     @include laptop {
+//       margin-bottom: 0;
+//       gap:12px;
+//     }
+
+//     @include desktop{
+//       gap: 16px;
+//     }
+//   }
+
+//   &__slider-image {
+//     width: 100%;
+//     border-radius: 16px;
+
+//   }
+
+//   &__slider-thumbnails {
+//     display: none;
+
+//     @include tablet {
+//       display: flex;
+//       gap: 14px;
+//     }
+
+//     @include laptop {
+//       gap: 12px;
+//     }
+
+//     @include desktop {
+//       gap: 16px;
+//     }
+//   }
+
+// 		&__info {
+
+//     }
+
+// 		&__info-price {
+//       margin-bottom: 12px;
+//       font-size: 20px;
+//     }
+
+// 		&__info-id {
+//       display: block;
+//       padding: 4px 8px;
+//       background-color: $secondary-light;
+//       border-radius: 32px;
+//       width: max-content;
+//     }
+
+
+// 		&__btn-cart {
+
+//     }
+// 		&__btn-like {}
+
+// }
+
+// .slider-thumbnails {
+
+//   &__item {
+//     overflow: hidden;
+//     border-radius: 16px;
+//     width: 100%;
+//   }
+
+//   &__img {
+//     object-fit: cover;
+//     width: 100%;
+//     height: 100%
+//   }
+// }
+
+// .product {
+
+//   &__info {}
+
+//   &__price {}
+
+//   &__article {}
+
+//   &__characteristics {}
+
+//   &__characteristics-title {
+//     margin-bottom: 12px;
+//     font-size: 16px;
+//     font-weight: 400;
+//   }
+
+//   &__characteristics-table {
+//     margin-bottom: 24px;
+//   }
+
+//   &__btns {
+//     display: flex;
+//     gap: 12px;
+//     align-items: center;
+//   }
+
+//   &__btn {}
+
+//   &__like {}
+// }
+
 .product {
   padding-top: 24px;
   padding-bottom: 60px;
 
+  @include tablet {
+    padding-top: 32px;
+    padding-bottom: 80px;
+  }
+
+  @include laptop {
+    padding-top: 40px;
+    padding-bottom: 100px
+  }
   &__container {
-    display: grid;
-    grid-template-areas: 'title' 'slider' 'info';
-    grid-template-columns: 1fr;
-    gap: 24px;
 
     @include laptop {
+      display: grid;
       grid-template-areas: 'title title' 'slider info';
-      grid-template-columns: 1fr 302px;
+      grid-template-columns: 66% 1fr;
       gap: 40px 16px;
-    }
 
-    @include desktop {
-      grid-template-areas: 'title title' 'slider info';
-      grid-template-columns: 1fr 408px;
-      gap: 40px 16px;
     }
   }
 
-
   &__title {
     grid-area: title;
-    font-family: $font-family-secondary;
-    font-weight: 900;
+
     font-size: 24px;
+    font-family: $font-family-secondary;
+    margin-bottom: 24px;
+
 
     @include tablet {
       font-size: 32px;
     }
 
     @include laptop {
-      font-size: 40px;
+      margin-bottom: 0;
     }
   }
 
-  &__slider {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    
+  &__picture {
     grid-area: slider;
-    margin-bottom: 8px;
+    margin-bottom: 32px;
 
     @include tablet {
-      margin-bottom: 16px;
-      gap:14px
+      margin-bottom: 40px;
     }
-
     @include laptop {
       margin-bottom: 0;
-      gap:12px;
-    }
-
-    @include desktop{
-      gap: 16px;
     }
   }
 
-  &__slider-image {
+  &__slider-main {
+    position: relative;
     width: 100%;
-    border-radius: 16px;
-
-  }
-
-  &__slider-thumbnails {
-    display: none;
+    height: 74vw;
+    max-height: 688px;
 
     @include tablet {
-      display: flex;
-      gap: 14px;
+      margin-bottom: 14px;
+      height: 92vw;
     }
 
     @include laptop {
-      gap: 12px;
+      height: 60vw;
     }
 
     @include desktop {
-      gap: 16px;
+      height: 48vw;
     }
   }
 
-		&__info {
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-    }
+  &__main-list {}
 
-		&__info-top {
-      color: $main-ligth;
-
-    }
-
-		&__info-price {
-      margin-bottom: 12px;
-      font-size: 20px;
-    }
-
-		&__info-id {
-      display: block;
-      padding: 4px 8px;
-      background-color: $secondary-light;
-      border-radius: 32px;
-      width: max-content;
-    }
-
-		&__info-body {
-      
-    }
-
-		&__info-title {
-
-    }
-
-		&__info-table {
-
-    }
-
-				&__info-btns {
-      display: flex;
-      gap: 12px;
-      align-items: center;
-
-    }
-
-		&__btn-cart {
-
-    }
-		&__btn-like {}
-
-}
-
-.slider-thumbnails {
-
-  &__item {
+  &__slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     overflow: hidden;
     border-radius: 16px;
-    width: 100%;
   }
 
-  &__img {
-    object-fit: cover;
+  &__image {
     width: 100%;
-    height: 100%
+    height: 100%;
+    object-fit: cover;
   }
+
+  &__arrow {
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+
+    &_next {
+      right: 16px;
+
+      @include tablet {
+        right: 24px;
+      }
+    }
+
+    &_prev {
+      left: 16px;
+
+      @include tablet {
+        left: 24px;
+      }
+    }
+  }
+
+  &__slider-thumbnails {
+    display: none !important;
+
+    @include tablet {
+      display: block !important;
+      height: 22vw;
+      max-height: 138px;
+    }
+
+    @include laptop {
+      height: 12vw;
+      max-height: 120px;
+    }
+
+    @include desktop {
+      max-height: 162px;
+    }
+  }
+
+  &__thumbnails-list {}
+
+  &__thumbnails-slide {
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  &__thumbnails-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__info {
+    grid-area: info;
+
+    @include laptop {
+
+    }
+  }
+
+  &__price {
+    font-size: 20px;
+    margin-bottom: 12px;
+  }
+
+  &__article {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 32px;
+    background-color: $secondary-light;
+    margin-bottom: 24px;
+  }
+
+  &__characteristics {
+
+  }
+
+  &__characteristics-title {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 12px;
+  }
+
+  &__characteristics-table {
+    margin-bottom: 24px;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__btn {}
+
+  &__like {}
 }

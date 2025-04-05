@@ -34,3 +34,26 @@
     }
 }
 
+
+.table {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 6px;
+    border-bottom: 1px solid $secondary-dark;
+  }
+
+  &__field {
+    color: $secondary-dark;
+    width: max-content;
+  }
+
+  &__value {
+    color: $main-ligth;
+  }
+}
