@@ -3,6 +3,16 @@
 
 .breadcrumb {
 
+  padding-top: 10px;
+
+  @include tablet {
+    padding-top: 14px;
+  }
+
+  @include laptop {
+    padding-top: 22px;
+  }
+
   &__container {}
 
   &__navigation {

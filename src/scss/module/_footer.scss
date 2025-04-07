@@ -85,7 +85,8 @@
     color: $secondary-light;
   }
 
-  &__developer-item {
+  &__developer-item:first-child {
+    margin-bottom: 8px;
   }
 
   &__developer-link {

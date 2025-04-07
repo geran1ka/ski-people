@@ -170,10 +170,7 @@ export default [
       'rest-spread-spacing': ['error', 'never'],
       'template-curly-spacing': ['error', 'never'],
       // ! новые
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
       'react/react-in-jsx-scope': 'off',
       'react/prop-types': 'off',
       strict: ['error', 'global'],

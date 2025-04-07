@@ -20,6 +20,8 @@
 }
 
 body {
+  display: flex;
+  flex-direction: column;
   overflow-x: hidden;
   min-width: 320px;
   min-height: 100vh;
@@ -83,6 +85,10 @@ fieldset {
 
 iframe {
   border: none;
+}
+
+.main {
+  flex-grow: 1;
 }
 
 .visually-hidden {

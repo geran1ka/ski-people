@@ -1,0 +1,41 @@
+@use '../mixin' as *;
+@use '../variables' as *;
+
+.pagination {
+
+  width: 200px;
+  margin: 0 auto;
+  padding-top: 30px;
+
+  &__bar {
+    background-color: $secondary-light;
+    height: 6px;
+    width: 100%;
+    border-radius: 3px;
+    margin-bottom: 16px;
+
+    &::after {
+      content: '';
+      display: block;
+      background-color: $primary;
+      height: 100%;
+      border-radius: 3px;
+      width: var(--width);
+
+      transition: width $transition;
+    }
+  }
+
+  &__arrays {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+}

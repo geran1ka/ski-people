@@ -3,14 +3,14 @@
 
 .catalog {
   overflow-x: hidden;
-  padding-bottom: 20px;
+  padding-top: 10px;
 
   @include tablet {
-    padding-bottom: 32px;
+    padding-top: 14px;
   }
 
   @include laptop {
-    padding-bottom: 40px;
+    padding-top: 22px;
   }
 
   &__container {
