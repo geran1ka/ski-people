@@ -1,8 +1,14 @@
 import { footer } from '../script/const.js';
 import { createElement } from '../script/modules/utils.js';
 
+// let rendered = false;
+
 export const renderFooter = () => {
   if (footer.getHTML()) return;
+
+  // if (rendered) return;
+
+  // rendered = true;
 
   const container = createElement('div', {
     className: 'container footer__container',

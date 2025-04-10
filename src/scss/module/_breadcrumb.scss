@@ -42,14 +42,26 @@
     &:hover {
       color: $primary;
     }
+
+    &:last-child {
+      cursor: pointer;
+      & a {
+        cursor: no-drop;
+
+      }
+    }
   }
 
   &__link {
+    cursor: pointer;
     outline: none;
     border-bottom: 1px solid transparent;
 
     &:focus-visible {
       border-color: $main-ligth;
     }
+
+    
+
   }
 }

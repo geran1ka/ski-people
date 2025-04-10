@@ -1,24 +1,24 @@
+import { API_URL_ } from '../script/const';
 import { createElement } from '../script/modules/utils';
 import { renderTable } from './renderTable';
 
-export const renderProduct = ({ img, title, price, article, characteristics }) => {
-  console.log(img);
-  const itemsSlideMain = img.bg.map(item =>
+export const renderProduct = ({ img, title, price, id, characteristics }) => {
+  const itemsSlideMain = img.map(item =>
     createElement('div', {
       className: 'swiper-slide product__slide',
       innerHTML: `
-      <img class="product__image" src=${item}>
+      <img class="product__image" src=${API_URL_}${item}>
     `,
     }),
   );
 
   console.dir('itemsSlideMain: ', itemsSlideMain);
 
-  const itemsSlideThumb = img.thumb.map(item =>
+  const itemsSlideThumb = img.map(item =>
     createElement('div', {
       className: 'swiper-slide product__thumbnails-slide',
       innerHTML: `
-      <img class="product__thumbnails-img" src=${item}>
+      <img class="product__thumbnails-img" src=${API_URL_}${item}>
     `,
     }),
   );
@@ -133,8 +133,8 @@ export const renderProduct = ({ img, title, price, article, characteristics }) =
               {
                 className: 'product__info',
                 innerHTML: `
-                <p class="product__price">${price}&nbsp;₽</p>
-                <p class="product__article">арт. ${article}</p>
+                <p class="product__price">${price}</p>
+                <p class="product__article">арт. ${id}</p>
               `,
               },
               {
@@ -147,10 +147,58 @@ export const renderProduct = ({ img, title, price, article, characteristics }) =
                 `,
                   },
                   {
-                    append: renderTable({
-                      className: 'product__characteristics-table',
-                      data: characteristics,
-                    }),
+                    appends: [
+                      renderTable({
+                        className: 'product__characteristics-table',
+                        data: characteristics,
+                      }),
+                      createElement(
+                        'div',
+                        {
+                          className: 'product__btns',
+                        },
+                        {
+                          appends: [
+                            createElement('button', {
+                              className: 'product__btn btn-cart-alt',
+                              type: 'button',
+                              id,
+                              textContent: 'В корзину',
+                            }),
+                            createElement(
+                              'button',
+                              {
+                                className: 'product__btn btn-like',
+                                type: 'button',
+                                id,
+                                innerHTML: `
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"  xmlns="http://www.w3.org/2000/svg">
+                                  <path d="M8.4135 13.8733C8.18683 13.9533 7.8135 13.9533 7.58683 13.8733C5.6535
+                                  13.2133 1.3335 10.46 1.3335 5.79332C1.3335 3.73332 2.9935 2.06665 5.04016 
+                                  2.06665C6.2535 2.06665 7.32683 2.65332 8.00016 3.55998C8.6735 2.65332 9.7535 
+                                  2.06665 10.9602 2.06665C13.0068 2.06665 14.6668 3.73332 14.6668 5.79332C14.6668 
+                                  10.46 10.3468 13.2133 8.4135 13.8733Z" 
+                                  stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                              `,
+                              },
+                              {
+                                cb(el) {
+                                  el.addEventListener('click', () => {
+                                    console.log(el);
+                                    if (el.classList.contains('btn-like_active')) {
+                                      el.classList.remove('btn-like_active');
+                                    } else {
+                                      el.classList.add('btn-like_active');
+                                    }
+                                  });
+                                },
+                              },
+                            ),
+                          ],
+                        },
+                      ),
+                    ],
                   },
                 ),
               },

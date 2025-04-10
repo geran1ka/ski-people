@@ -2,8 +2,14 @@ import { header } from '../script/const.js';
 import { createElement } from '../script/modules/utils.js';
 import { renderContainer } from './renderContainer.js';
 
+// let rendered = false;
+
 export const renderHeader = () => {
   if (header.getHTML()) return;
+
+  // if (rendered) return;
+
+  // rendered = true
 
   const headerWrapper = createElement(
     'div',

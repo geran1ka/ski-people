@@ -2,131 +2,134 @@ export const header = document.querySelector('.header');
 export const main = document.querySelector('.main');
 export const footer = document.querySelector('.footer');
 
-export const dataGoods = [
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 1000,
-    like: true,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 2000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 3000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 4000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 5000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 5000,
-    like: true,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 6000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 7000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 8000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 9000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 10000,
-    like: false,
-    href: '/card',
-  },
-  {
-    src: '/img/snow.jpg',
-    title: 'Горные лыжи',
-    price: 11000,
-    like: false,
-    href: '/card',
-  },
-];
+export const API_URL = 'https://api-aski-people.onrender.com';
+export const API_URL_ = 'https://api-aski-people.onrender.com';
 
-export const dataBreadcrumb = [
-  {
-    title: 'Лыжи',
-    href: '#',
-  },
-  {
-    title: 'Горные лыжи',
-    href: '#',
-  },
-];
+// export const dataGoods = [
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 1000,
+//     like: true,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 2000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 3000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 4000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 5000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 5000,
+//     like: true,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 6000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 7000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 8000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 9000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 10000,
+//     like: false,
+//     href: '/card',
+//   },
+//   {
+//     src: '/img/snow.jpg',
+//     title: 'Горные лыжи',
+//     price: 11000,
+//     like: false,
+//     href: '/card',
+//   },
+// ];
 
-export const dataCatalog = [
-  {
-    title: 'Все',
-    href: '#',
-    active: true,
-  },
-  {
-    title: 'Лыжи',
-    href: '#',
-    active: false,
-  },
-  {
-    title: 'Сноуборды',
-    href: '#',
-    active: false,
-  },
-  {
-    title: 'Экипировка',
-    href: '#',
-    active: false,
-  },
-  {
-    title: 'Ботинки',
-    href: '#',
-    active: false,
-  },
-];
+// export const dataBreadcrumb = [
+//   {
+//     title: 'Лыжи',
+//     href: '#',
+//   },
+//   {
+//     title: 'Горные лыжи',
+//     href: '#',
+//   },
+// ];
+
+// export const dataCatalog = [
+//   {
+//     title: 'Все',
+//     href: '#',
+//     active: true,
+//   },
+//   {
+//     title: 'Лыжи',
+//     href: '#',
+//     active: false,
+//   },
+//   {
+//     title: 'Сноуборды',
+//     href: '#',
+//     active: false,
+//   },
+//   {
+//     title: 'Экипировка',
+//     href: '#',
+//     active: false,
+//   },
+//   {
+//     title: 'Ботинки',
+//     href: '#',
+//     active: false,
+//   },
+// ];
 
 export const dataCart = [
   {
@@ -179,38 +182,38 @@ export const dataOrder = [
   },
 ];
 
-export const dataProduct = {
-  img: {
-    bg: ['/img/main-slide.jpg', '/img/main-slide.jpg', '/img/main-slide.jpg', '/img/main-slide.jpg'],
-    thumb: ['/img/mini-slide.jpg', '/img/mini-slide.jpg', '/img/mini-slide.jpg', '/img/mini-slide.jpg'],
-  },
-  title: 'Лыжи',
-  price: 5000,
-  article: 45234235423,
-  characteristics: [
-    {
-      field: 'Коллекция',
-      value: 'Мирсаж',
-    },
-    {
-      field: 'Производитель',
-      value: 'Россия',
-    },
-    {
-      field: 'Гарантия',
-      value: '18 мес.',
-    },
-    {
-      field: 'Срок службы',
-      value: '5 лет',
-    },
-    {
-      field: 'Цвет',
-      value: 'Желтый',
-    },
-    {
-      field: 'Макс. нагрузка<',
-      value: '130 кг',
-    },
-  ],
-};
+// export const dataProduct = {
+//   img: {
+//     bg: ['/img/main-slide.jpg', '/img/main-slide.jpg', '/img/main-slide.jpg', '/img/main-slide.jpg'],
+//     thumb: ['/img/mini-slide.jpg', '/img/mini-slide.jpg', '/img/mini-slide.jpg', '/img/mini-slide.jpg'],
+//   },
+//   title: 'Лыжи',
+//   price: 5000,
+//   article: 45234235423,
+//   characteristics: [
+//     {
+//       field: 'Коллекция',
+//       value: 'Мирсаж',
+//     },
+//     {
+//       field: 'Производитель',
+//       value: 'Россия',
+//     },
+//     {
+//       field: 'Гарантия',
+//       value: '18 мес.',
+//     },
+//     {
+//       field: 'Срок службы',
+//       value: '5 лет',
+//     },
+//     {
+//       field: 'Цвет',
+//       value: 'Желтый',
+//     },
+//     {
+//       field: 'Макс. нагрузка<',
+//       value: '130 кг',
+//     },
+//   ],
+// };

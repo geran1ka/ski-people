@@ -1,7 +1,7 @@
 import Navigo from 'navigo';
 import { renderHeader } from '../components/renderHeader';
 import { renderFooter } from '../components/renderFooter';
-import { dataBreadcrumb, dataCart, dataCatalog, dataGoods, dataOrder, dataProduct, main } from './const';
+import { dataCart, dataOrder, main } from './const';
 import { renderGoods } from '../components/renderGoods';
 import { renderBreadcrumbs } from '../components/renderBreadcrumb';
 import { renderCatalog } from '../components/renderCatalog';
@@ -10,9 +10,9 @@ import { renderOrder } from '../components/renderOrder';
 import { renderProduct } from '../components/renderProduct';
 import { renderNotFound } from '../components/renderNotFound';
 import { slideController } from './controller/slideController';
-console.log('dataProduct: ', dataProduct);
+import { getData } from './api';
 
-const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
+const router = new Navigo('/', { hash: true });
 
 export const initRouter = () => {
   router
@@ -20,27 +20,31 @@ export const initRouter = () => {
       renderHeader();
       renderFooter();
     })
-    .on('/', () => {
+    .on('/', async () => {
+      const goods = await getData();
       main.textContent = '';
-      main.append(renderCatalog({ data: dataCatalog }));
-      main.append(renderGoods({ data: dataGoods }));
+      main.append(renderCatalog({ data: goods }));
+      main.append(renderGoods({ data: goods }));
     })
-    .on('/favorite', () => {
+    .on('favorite', () => {
       main.textContent = '';
-      main.append(renderBreadcrumbs({ data: dataBreadcrumb }));
-      main.append(renderGoods({ data: dataGoods, title: 'Избранное' }));
+      // main.append(renderBreadcrumbs({ data: dataBreadcrumb }));
+      // main.append(renderGoods({ data: dataGoods, title: 'Избранное' }));
     })
-    .on('/cart', () => {
+    .on('cart', () => {
       main.textContent = '';
       main.append(renderCart({ data: dataCart }));
     })
-    .on('/card', () => {
+    .on('card:id', async () => {
       main.textContent = '';
-      main.append(renderBreadcrumbs({ data: dataBreadcrumb }));
+      const goods = await getData();
+      const id = window.location.pathname.split(':')[1];
+      const dataProduct = goods.find(item => item.id === +id)
+      main.append(renderBreadcrumbs({ data: dataProduct }));
       main.append(renderProduct(dataProduct));
       slideController();
     })
-    .on('/order', () => {
+    .on('order', () => {
       main.textContent = '';
       main.append(
         renderOrder({

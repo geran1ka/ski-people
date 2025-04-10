@@ -22,6 +22,7 @@
   }
 
   &__item {
+    cursor: pointer;
   }
 
   &__link {
@@ -42,11 +43,14 @@
       border-color: $primary;
     }
 
-    &:active,
     &_active {
       color: $secondary;
       background-color: $primary;
       border-color: $primary;
+
+      &:hover {
+        color: $secondary;
+      }
     }
   }
 }

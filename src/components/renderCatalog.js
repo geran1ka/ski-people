@@ -1,7 +1,43 @@
 import { createElement } from '../script/modules/utils';
+import { renderCard } from './renderCard';
 
-export const renderCatalog = ({ data }) => {
-  const arrayItem = data.map(({ title, href, active }) =>
+export const updateGoodsList = ({ el, data }) => {
+  el.textContent = '';
+  const items = [...data.map(({ img, title, price, id }) => renderCard({ img, title, price, id }))];
+  el.append(...items);
+
+  return el;
+};
+
+// const links = text => {
+//   let href = '';
+
+//   switch (text) {
+//     case 'Лыжи':
+//       href = '/goods#skis';
+//       break;
+//     case 'Сноуборды':
+//       href = '/goods#snowboard';
+//       break;
+//     case 'Аксессуары':
+//       href = '/goods#accessories';
+//       break;
+//     case 'Экипировка':
+//       href = '/goods#equipment';
+//       break;
+//     default:
+//       href = '/goods';
+//   }
+
+//   return href;
+// };
+
+// console.log(links(['Лыжи', 'ntc']));
+
+export const renderCatalog = ({ data = [] }) => {
+  const arrCatalog = [...new Set(data.map(item => item.category))];
+
+  const arrayItem = [
     createElement(
       'li',
       {
@@ -9,13 +45,26 @@ export const renderCatalog = ({ data }) => {
       },
       {
         append: createElement('a', {
-          className: active ? 'catalog__link catalog__link_active' : 'catalog__link',
-          href,
-          textContent: title,
+          className: 'catalog__link catalog__link_active',
+          textContent: 'Все',
         }),
       },
     ),
-  );
+    ...arrCatalog.map(item =>
+      createElement(
+        'li',
+        {
+          className: 'catalog__item',
+        },
+        {
+          append: createElement('a', {
+            className: 'catalog__link',
+            textContent: item,
+          }),
+        },
+      ),
+    ),
+  ];
 
   return createElement(
     'div',
@@ -37,6 +86,28 @@ export const renderCatalog = ({ data }) => {
             },
             {
               appends: [...arrayItem],
+              cb(el) {
+                el.addEventListener('click', e => {
+                  arrayItem.forEach(item => {
+                    // if (e.target.matches('a')) {
+                    if (e.target === item.firstChild) {
+                      item.firstChild.classList.add('catalog__link_active');
+                    } else {
+                      item.firstChild.classList.remove('catalog__link_active');
+                    }
+                    // }
+                  });
+                  console.log(e.target.textContent);
+                  const goodsList = document.querySelector('.goods__list');
+
+                  if (e.target.textContent === 'Все') {
+                    updateGoodsList({ el: goodsList, data });
+                  } else {
+                    const refreshList = data.filter(item => item.category === e.target.textContent);
+                    updateGoodsList({ el: goodsList, data: refreshList });
+                  }
+                });
+              },
             },
           ),
         },
@@ -44,25 +115,3 @@ export const renderCatalog = ({ data }) => {
     },
   );
 };
-
-// <div class="catalog">
-//   <div class="container catalog__container">
-//     <ul class="catalog__list">
-//       <li class="catalog__item">
-//         <a href="#" class="catalog__link catalog__link_active">Все</a>
-//       </li>
-//       <li class="catalog__item">
-//         <a href="#" class="catalog__link">Лыжи</a>
-//       </li>
-//       <li class="catalog__item">
-//         <a href="#" class="catalog__link">Сноуборды</a>
-//       </li>
-//       <li class="catalog__item">
-//         <a href="#" class="catalog__link">Экипировка</a>
-//       </li>
-//       <li class="catalog__item">
-//         <a href="#" class="catalog__link">Ботинки</a>
-//       </li>
-//     </ul>
-//   </div>
-// </div>
