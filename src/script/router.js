@@ -10,9 +10,9 @@ import { renderOrder } from '../components/renderOrder';
 import { renderProduct } from '../components/renderProduct';
 import { renderNotFound } from '../components/renderNotFound';
 import { slideController } from './controller/slideController';
-import { getData } from './api';
+import { getCategory, getData, getProduct } from './api';
 
-const router = new Navigo('/', { hash: true });
+export const router = new Navigo('/', { linksSelector: 'a[href^="/"]' });
 
 export const initRouter = () => {
   router
@@ -21,30 +21,37 @@ export const initRouter = () => {
       renderFooter();
     })
     .on('/', async () => {
-      const goods = await getData();
+      const data = await getData();
+      const categories = await getCategory();
       main.textContent = '';
-      main.append(renderCatalog({ data: goods }));
-      main.append(renderGoods({ data: goods }));
+      main.append(renderCatalog({ data: categories }));
+      main.append(renderGoods({ data }));
     })
-    .on('favorite', () => {
+    .on('/goods/:category', async obj => {
+      const category = obj.data.category;
+      const categories = await getCategory();
+      const data = await getData(category);
       main.textContent = '';
-      // main.append(renderBreadcrumbs({ data: dataBreadcrumb }));
+      main.append(renderCatalog({ data: categories, category }));
+      main.append(renderGoods({ data }));
+    })
+    .on('/product/:id', async obj => {
+      const id = obj.data.id;
+      main.textContent = '';
+      const product = await getProduct(id);
+      main.append(renderBreadcrumbs({ data: product }));
+      main.append(renderProduct(product));
+      slideController();
+    })
+    .on('/favorite', () => {
+      main.textContent = '';
       // main.append(renderGoods({ data: dataGoods, title: 'Избранное' }));
     })
-    .on('cart', () => {
+    .on('/cart', () => {
       main.textContent = '';
       main.append(renderCart({ data: dataCart }));
     })
-    .on('card:id', async () => {
-      main.textContent = '';
-      const goods = await getData();
-      const id = window.location.pathname.split(':')[1];
-      const dataProduct = goods.find(item => item.id === +id)
-      main.append(renderBreadcrumbs({ data: dataProduct }));
-      main.append(renderProduct(dataProduct));
-      slideController();
-    })
-    .on('order', () => {
+    .on('/order', () => {
       main.textContent = '';
       main.append(
         renderOrder({
@@ -59,8 +66,7 @@ export const initRouter = () => {
       main.append(renderNotFound());
       console.log('not');
     });
-  console.log('end');
-  main.append(renderNotFound());
-
   router.resolve();
+
+  router.updatePageLinks();
 };

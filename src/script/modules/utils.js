@@ -1,8 +1,4 @@
-export const createElement = (
-  tag,
-  attr,
-  { append, appends, prepends, parent, cb } = {},
-) => {
+export const createElement = (tag, attr, { append, appends, prepends, parent, cb } = {}) => {
   const element = document.createElement(tag);
 
   if (attr) {

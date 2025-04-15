@@ -46,6 +46,19 @@
       gap: 40px 16px;
     }
   }
+
+  &__item {
+    min-height: 233px;
+    height: 100%;
+
+    @include tablet {
+      min-height: 315px;
+    }
+
+    @include laptop {
+      min-height: 342px;
+    }
+  }
 }
 
 

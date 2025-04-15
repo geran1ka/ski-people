@@ -33,7 +33,7 @@ export const renderGoods = ({ data = [], title }) => {
 
   const arrayItem = data.map(item => renderCard(item));
 
-  const goodsList = createElement(
+  createElement(
     'ul',
     {
       className: 'goods__list',

@@ -1,14 +1,14 @@
 import { API_URL_ } from '../script/const.js';
 import { createElement } from '../script/modules/utils.js';
 
-export const renderCard = ({ img, title, price, id }) => {
+export const renderCard = ({ img, title, price, id, category }) => {
   const btnCart = createElement(
     'button',
     {
       className: 'card__btn-cart btn-cart',
       type: 'button',
       id,
-      textContent: title,
+      textContent: 'В корзину',
     },
     {
       cb(el) {
@@ -67,7 +67,7 @@ export const renderCard = ({ img, title, price, id }) => {
               'a',
               {
                 className: 'card__link',
-                href: `/card:${id}`,
+                href: `/product/${id}`,
               },
               {
                 append: createElement('img', {
@@ -86,7 +86,7 @@ export const renderCard = ({ img, title, price, id }) => {
                 appends: [
                   createElement('h3', {
                     className: 'card__info-title',
-                    textContent: title,
+                    textContent: category.rus,
                   }),
                   createElement('p', {
                     className: 'card__info-price',

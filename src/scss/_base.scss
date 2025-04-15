@@ -89,6 +89,8 @@ iframe {
 
 .main {
   flex-grow: 1;
+  min-height: 1vh;
+  height: 100%;
 }
 
 .visually-hidden {

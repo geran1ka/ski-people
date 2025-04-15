@@ -5,6 +5,9 @@ export const footer = document.querySelector('.footer');
 export const API_URL = 'https://api-aski-people.onrender.com';
 export const API_URL_ = 'https://api-aski-people.onrender.com';
 
+// export const API_URL = 'http://localhost:3000';
+// export const API_URL_ = 'http://localhost:3000';
+
 // export const dataGoods = [
 //   {
 //     src: '/img/snow.jpg',

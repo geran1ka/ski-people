@@ -44,11 +44,8 @@
     }
 
     &:last-child {
-      cursor: pointer;
-      & a {
-        cursor: no-drop;
+      pointer-events: none;
 
-      }
     }
   }
 

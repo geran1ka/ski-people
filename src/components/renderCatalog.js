@@ -1,68 +1,25 @@
 import { createElement } from '../script/modules/utils';
-import { renderCard } from './renderCard';
+import { router } from '../script/router';
 
-export const updateGoodsList = ({ el, data }) => {
-  el.textContent = '';
-  const items = [...data.map(({ img, title, price, id }) => renderCard({ img, title, price, id }))];
-  el.append(...items);
-
-  return el;
-};
-
-// const links = text => {
-//   let href = '';
-
-//   switch (text) {
-//     case 'Лыжи':
-//       href = '/goods#skis';
-//       break;
-//     case 'Сноуборды':
-//       href = '/goods#snowboard';
-//       break;
-//     case 'Аксессуары':
-//       href = '/goods#accessories';
-//       break;
-//     case 'Экипировка':
-//       href = '/goods#equipment';
-//       break;
-//     default:
-//       href = '/goods';
-//   }
-
-//   return href;
-// };
-
-// console.log(links(['Лыжи', 'ntc']));
-
-export const renderCatalog = ({ data = [] }) => {
-  const arrCatalog = [...new Set(data.map(item => item.category))];
-
+export const renderCatalog = ({ data = [], category = '' }) => {
   const arrayItem = [
-    createElement(
-      'li',
-      {
+    createElement('li', {
+      className: 'catalog__item',
+      innerHTML: `
+        <a ${category ? 'class="catalog__link "' : 'class="catalog__link catalog__link_active"'}
+          href="/">Все</a>
+      `,
+    }),
+    ...data.map(item =>
+      createElement('li', {
         className: 'catalog__item',
-      },
-      {
-        append: createElement('a', {
-          className: 'catalog__link catalog__link_active',
-          textContent: 'Все',
-        }),
-      },
-    ),
-    ...arrCatalog.map(item =>
-      createElement(
-        'li',
-        {
-          className: 'catalog__item',
-        },
-        {
-          append: createElement('a', {
-            className: 'catalog__link',
-            textContent: item,
-          }),
-        },
-      ),
+        innerHTML: `
+            <a 
+              ${
+                item.eng === category ? 'class="catalog__link catalog__link_active"' : 'class="catalog__link"'
+              } href="/goods/${item.eng}">${item.rus}</a>
+          `,
+      }),
     ),
   ];
 
@@ -87,25 +44,17 @@ export const renderCatalog = ({ data = [] }) => {
             {
               appends: [...arrayItem],
               cb(el) {
-                el.addEventListener('click', e => {
+                el.addEventListener('click', async e => {
+                  e.preventDefault();
                   arrayItem.forEach(item => {
-                    // if (e.target.matches('a')) {
-                    if (e.target === item.firstChild) {
-                      item.firstChild.classList.add('catalog__link_active');
+                    if (item.contains(e.target)) {
+                      item.children[0].classList.add('catalog__link_active');
                     } else {
-                      item.firstChild.classList.remove('catalog__link_active');
+                      item.children[0].classList.remove('catalog__link_active');
                     }
-                    // }
                   });
-                  console.log(e.target.textContent);
-                  const goodsList = document.querySelector('.goods__list');
 
-                  if (e.target.textContent === 'Все') {
-                    updateGoodsList({ el: goodsList, data });
-                  } else {
-                    const refreshList = data.filter(item => item.category === e.target.textContent);
-                    updateGoodsList({ el: goodsList, data: refreshList });
-                  }
+                  router.navigate(e.target.pathname);
                 });
               },
             },
