@@ -1,27 +1,33 @@
-import { API_URL_ } from '../script/const';
+import { API_URL } from '../script/const';
+import { localStorageLoad, localStorageSave } from '../script/localstorage';
 import { createElement } from '../script/modules/utils';
+import { createBtnLike } from './btnLike';
 import { renderTable } from './renderTable';
 
-export const renderProduct = ({ img, title, price, id, characteristics }) => {
+export const renderProduct = data => {
+  const { img, title, price, id, characteristics } = data;
   const itemsSlideMain = img.map(item =>
     createElement('div', {
       className: 'swiper-slide product__slide',
       innerHTML: `
-      <img class="product__image" src=${API_URL_}${item}>
+      <img class="product__image" src=${API_URL}${item}>
     `,
     }),
   );
-
-  console.dir('itemsSlideMain: ', itemsSlideMain);
 
   const itemsSlideThumb = img.map(item =>
     createElement('div', {
       className: 'swiper-slide product__thumbnails-slide',
       innerHTML: `
-      <img class="product__thumbnails-img" src=${API_URL_}${item}>
+      <img class="product__thumbnails-img" src=${API_URL}${item}>
     `,
     }),
   );
+
+  const btnLike = createBtnLike({
+    className: 'product__btn',
+    id,
+  });
 
   return createElement(
     'section',
@@ -169,37 +175,36 @@ export const renderProduct = ({ img, title, price, id, characteristics }) => {
                               id,
                               textContent: 'В корзину',
                             }),
-                            createElement(
-                              'button',
-                              {
-                                className: 'product__btn btn-like',
-                                type: 'button',
-                                id,
-                                innerHTML: `
-                                  <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"  xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M8.4135 13.8733C8.18683 13.9533 7.8135 13.9533 7.58683 13.8733C5.6535
-                                    13.2133 1.3335 10.46 1.3335 5.79332C1.3335 3.73332 2.9935 2.06665 5.04016 
-                                    2.06665C6.2535 2.06665 7.32683 2.65332 8.00016 3.55998C8.6735 2.65332 9.7535 
-                                    2.06665 10.9602 2.06665C13.0068 2.06665 14.6668 3.73332 14.6668 5.79332C14.6668 
-                                    10.46 10.3468 13.2133 8.4135 13.8733Z" 
-                                    stroke-linecap="round" stroke-linejoin="round"/>
-                                  </svg>
-                                `,
-                              },
-                              {
-                                cb(el) {
-                                  el.addEventListener('click', () => {
-                                    console.log(el);
-                                    if (el.classList.contains('btn-like_active')) {
-                                      el.classList.remove('btn-like_active');
-                                    } else {
-                                      el.classList.add('btn-like_active');
+                            btnLike,
+                          ],
+                          cb(el) {
+                            el.addEventListener('click', e => {
+                              e.preventDefault();
+                              if (e.target.closest('.btn-like')) {
+                                const id = Number(e.target.closest('.btn-like').dataset.id);
+                                if (!id) return;
+                                const favoriteList = localStorageLoad('ski-people-favorite');
+
+                                if (favoriteList.length === 0) {
+                                  favoriteList.push(data);
+                                  localStorageSave('ski-people-favorite', favoriteList);
+                                } else {
+                                  let thereIs = false;
+                                  favoriteList.forEach((favoriteItem, index) => {
+                                    if (favoriteItem.id === id) {
+                                      thereIs = true;
+                                      favoriteList.splice(index, 1);
+                                      localStorageSave('ski-people-favorite', favoriteList);
                                     }
                                   });
-                                },
-                              },
-                            ),
-                          ],
+                                  if (!thereIs) {
+                                    favoriteList.push(data);
+                                    localStorageSave('ski-people-favorite', favoriteList);
+                                  }
+                                }
+                              }
+                            });
+                          },
                         },
                       ),
                     ],

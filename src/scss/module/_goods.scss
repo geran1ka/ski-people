@@ -59,6 +59,44 @@
       min-height: 342px;
     }
   }
+
+  &__empty-item {
+    grid-column: 1 / -1;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  &__empty-title {
+    text-align: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+
+    @include tablet {
+      font-size: 26px;
+    }
+
+    @include laptop {
+      font-size: 32px;
+    }
+  }
+
+  &__empty-link {
+    display: block;
+    cursor: pointer;
+    text-align: center;
+    color: $primary;
+    font-size: 14px;
+    text-decoration: double;
+
+    
+    @include tablet {
+      font-size: 20px;
+    }
+
+    @include laptop {
+      font-size: 26px;
+    }
+  }
 }
 
 

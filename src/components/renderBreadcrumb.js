@@ -2,7 +2,6 @@ import { createElement } from '../script/modules/utils.js';
 import { router } from '../script/router.js';
 
 export const renderBreadcrumbs = ({ data }) => {
-  console.log('data: ', data);
   const { title, category } = data;
   const breadcrumbs = ['Главная', category, title];
   const arrayBreadcrumb = breadcrumbs.map(item =>
@@ -35,10 +34,9 @@ export const renderBreadcrumbs = ({ data }) => {
           const route = e.target.pathname;
           if (route === '/') {
             router.navigate(route);
-          } else {
+          } else if (route !== undefined) {
             router.navigate(`goods${route}`);
           }
-          console.log(e.target.pathname);
         });
       },
     },

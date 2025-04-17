@@ -1,9 +1,9 @@
 import { createElement } from '../script/modules/utils';
 import { renderCard } from './renderCard';
 import { renderPagination } from './renderPagination';
+import { router } from '../script/router';
 
 export const renderGoods = ({ data = [], title }) => {
-
   const section = createElement('section', {
     className: 'goods',
   });
@@ -33,17 +33,49 @@ export const renderGoods = ({ data = [], title }) => {
 
   const arrayItem = data.map(item => renderCard(item));
 
-  createElement(
+  const goodsList = createElement(
     'ul',
     {
       className: 'goods__list',
       textContent: '',
     },
     {
-      appends: [...arrayItem],
       parent: container,
     },
   );
+
+  const empty = createElement(
+    'li',
+    {
+      className: 'goods__empty-item',
+      innerHTML: '<h3 class="goods__empty-title">По вашему запросу ничего не найдено!!!</h3>',
+    },
+    {
+      append: createElement(
+        'a',
+        {
+          className: 'goods__empty-link',
+          href: '/',
+          textContent: 'Вернуться на главную страницу',
+        },
+        {
+          cb(el) {
+            el.addEventListener('click', e => {
+              e.preventDefault();
+
+              router.navigate('/');
+            });
+          },
+        },
+      ),
+    },
+  );
+
+  if (arrayItem.length !== 0) {
+    goodsList.append(...arrayItem);
+  } else {
+    goodsList.append(empty);
+  }
 
   container.append(renderPagination({ current: 12, total: 31 }));
 

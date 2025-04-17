@@ -6,8 +6,7 @@ export const renderCatalog = ({ data = [], category = '' }) => {
     createElement('li', {
       className: 'catalog__item',
       innerHTML: `
-        <a ${category ? 'class="catalog__link "' : 'class="catalog__link catalog__link_active"'}
-          href="/">Все</a>
+        <a ${category ? 'class="catalog__link "' : 'class="catalog__link catalog__link_active"'} href="/">Все</a>
       `,
     }),
     ...data.map(item =>

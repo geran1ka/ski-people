@@ -1,6 +1,7 @@
 import { header } from '../script/const.js';
 import { createElement } from '../script/modules/utils.js';
 import { renderContainer } from './renderContainer.js';
+import { router } from '../script/router.js';
 
 // let rendered = false;
 
@@ -30,7 +31,6 @@ export const renderHeader = () => {
     'form',
     {
       className: 'header__search',
-      action: '#',
     },
     {
       appends: [
@@ -69,6 +69,19 @@ export const renderHeader = () => {
         }),
       ],
       parent: headerWrapper,
+      cb(el) {
+        el.addEventListener('submit', e => {
+          e.preventDefault();
+
+          const search = new FormData(el).get('search');
+
+          if (!search) return;
+
+          router.navigate(`/search?search=${search}`);
+
+          el.reset();
+        });
+      },
     },
   );
 
