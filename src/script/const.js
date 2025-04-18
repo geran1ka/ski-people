@@ -4,9 +4,9 @@ export const footer = document.querySelector('.footer');
 
 export const sizePagination = 12;
 
-// export const API_URL = 'https://api-aski-people.onrender.com';
+export const API_URL = 'https://api-aski-people.onrender.com';
 
-export const API_URL = 'http://localhost:3000';
+// export const API_URL = 'http://localhost:3000';
 
 export const dataCart = [
   {
