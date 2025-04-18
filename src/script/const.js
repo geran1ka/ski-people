@@ -2,9 +2,11 @@ export const header = document.querySelector('.header');
 export const main = document.querySelector('.main');
 export const footer = document.querySelector('.footer');
 
-export const API_URL = 'https://api-aski-people.onrender.com';
+export const sizePagination = 12;
 
-// export const API_URL = 'http://localhost:3000';
+// export const API_URL = 'https://api-aski-people.onrender.com';
+
+export const API_URL = 'http://localhost:3000';
 
 export const dataCart = [
   {

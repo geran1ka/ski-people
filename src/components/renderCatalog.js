@@ -13,10 +13,9 @@ export const renderCatalog = ({ data = [], category = '' }) => {
       createElement('li', {
         className: 'catalog__item',
         innerHTML: `
-            <a 
-              ${
-                item.eng === category ? 'class="catalog__link catalog__link_active"' : 'class="catalog__link"'
-              } href="/goods/${item.eng}">${item.rus}</a>
+            <a ${
+              item.eng === category ? 'class="catalog__link catalog__link_active"' : 'class="catalog__link"'
+            } href="/goods/${item.eng}">${item.rus}</a>
           `,
       }),
     ),

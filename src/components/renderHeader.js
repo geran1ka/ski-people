@@ -74,6 +74,7 @@ export const renderHeader = () => {
           e.preventDefault();
 
           const search = new FormData(el).get('search');
+          console.log('search: ', search);
 
           if (!search) return;
 

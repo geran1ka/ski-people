@@ -1,44 +1,15 @@
 import { API_URL } from './const.js';
 
-// const getIdFromUrl = () => {
-//   const params = new URLSearchParams(location.search);
-//   return params.get('id');
-// };
-
-const formatQueryString = params => {
-  if (Object.keys(params).length === 0) {
-    return '';
-  }
-
-  const searchParams = new URLSearchParams();
-  Object.entries(params).forEach(([key, value]) => {
-    searchParams.append(key, value);
-  });
-
-  return `?${searchParams.toString()}`;
-};
-
-export const getDataSearch = async (params = {}) => {
+export const getData = async (params = null) => {
   try {
-    const response = await fetch(`${API_URL}/search${formatQueryString(params)}`);
-    console.log('formatQueryString(params): ', formatQueryString(params));
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    let response = {};
+    if (params.url || params.queryString) {
+      response = await fetch(
+        `${API_URL}/${params.url ? params.url : ''}${params.queryString ? `?${params.queryString}` : ''}`,
+      );
+    } else {
+      response = await fetch(`${API_URL}/`);
     }
-
-    const data = await response.json();
-
-    return data;
-  } catch (error) {
-    console.error(`Ошибка при получении данных: ${error}`);
-    return [];
-  }
-};
-
-export const getData = async (category = '') => {
-  try {
-    const response = await fetch(`${API_URL}/goods${category ? '/' + category : ''}`);
 
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);

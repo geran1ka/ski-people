@@ -3,7 +3,7 @@ import { renderCard } from './renderCard';
 import { renderPagination } from './renderPagination';
 import { router } from '../script/router';
 
-export const renderGoods = ({ data = [], title }) => {
+export const renderGoods = ({ data = [], title = '', page, pages, size, totalCount, obj }) => {
   const section = createElement('section', {
     className: 'goods',
   });
@@ -77,7 +77,10 @@ export const renderGoods = ({ data = [], title }) => {
     goodsList.append(empty);
   }
 
-  container.append(renderPagination({ current: 12, total: 31 }));
+  if (pages !== 1) {
+    console.log();
+    container.append(renderPagination({ page, pages, size, totalCount, obj }));
+  }
 
   return section;
 };

@@ -63,6 +63,5 @@ export const addFavoriteA = async data => {
         }
       }
     });
-  } else {
   }
 };

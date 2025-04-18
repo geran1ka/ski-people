@@ -37,7 +37,7 @@ export const createBtnLike = ({ className, id }) => {
 
   btnLike.dataset.id = id;
 
-  if (like) btnLike.classList.add('btn-like_active')
+  if (like) btnLike.classList.add('btn-like_active');
 
   return btnLike;
 };
